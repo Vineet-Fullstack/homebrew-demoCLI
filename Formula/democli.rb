@@ -5,8 +5,6 @@ class Democli < Formula
     sha256 "e7f826b22047b709378676b0cc12ef9d16bc50944e533f8a44527d7cb621944c"
     version "v1.0.18"
   
-    depends_on "dotnet" => :cask  # ✅ Ensure .NET runtime is installed
-  
     def install
       libexec.install Dir["*"]  # ✅ Copy everything into libexec
   
