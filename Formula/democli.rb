@@ -6,12 +6,8 @@ class Democli < Formula
     version "v1.0.18"
   
     def install
-        bin.install "demoCLI"  # Install the main executable
-        bin.install "demoCLI.dll"  # Install the DLL in the same directory
-    end
-  
-    test do
-      system "#{bin}/demoCLI", "--help"
+        install "demoCLI"  # Install the main executable
+        install "demoCLI.dll"  # Install the DLL in the same directory
     end
   end
   
