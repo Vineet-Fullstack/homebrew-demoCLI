@@ -5,9 +5,18 @@ class Democli < Formula
     sha256 "e7f826b22047b709378676b0cc12ef9d16bc50944e533f8a44527d7cb621944c"
     version "v1.0.18"
   
+    depends_on "dotnet-runtime"  # ✅ Ensure .NET runtime is installed
+  
     def install
-        install "demoCLI"  # Install the main executable
-        install "demoCLI.dll"  # Install the DLL in the same directory
+      libexec.install Dir["*"]  # ✅ Copy everything into libexec
+  
+      (bin/"demoCLI").write <<~EOS
+        #!/bin/bash
+        DOTNET_ROOT=$(brew --prefix dotnet-runtime)
+        exec "$DOTNET_ROOT/dotnet" "#{libexec}/demoCLI.dll" "$@"
+      EOS
+  
+      chmod "+x", bin/"demoCLI"
     end
   end
   
