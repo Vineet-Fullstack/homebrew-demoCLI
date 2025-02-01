@@ -6,7 +6,7 @@ class Democli < Formula
     version "v1.0.18"
   
     def install
-      bin.install "demoCLI"  # Adjust this path based on where your executable is inside the zip file
+        bin.install "bin/demoCLI"  # Adjust this path based on where your executable is inside the zip file
     end
   
     test do
