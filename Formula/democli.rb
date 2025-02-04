@@ -6,6 +6,12 @@ class Democli < Formula
   version "v1.0.21"
 
   def install
-    bin.install "demoCLI"  # Directly install the self-contained binary
+    # Assuming the zip contains a macOS binary named `demoCLI`
+    bin.install "demoCLI"
+  end
+
+  test do
+    # Add a simple test to verify the installation
+    system "#{bin}/demoCLI", "--version"
   end
 end
